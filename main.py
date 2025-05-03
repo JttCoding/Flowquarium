@@ -9,5 +9,6 @@ class MainWidget(Widget):
 class FlowquariumApp(App):
     pass
 
+
 if __name__ == "__main__":
     FlowquariumApp().run()
