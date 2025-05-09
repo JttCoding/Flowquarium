@@ -1,12 +1,7 @@
-from kivy.app import App
-from kivy.uix.widget import Widget
+from kivymd.app import MDApp
 
 
-class MainWidget(Widget):
-    pass
-
-
-class FlowquariumApp(App):
+class FlowquariumApp(MDApp):
     pass
 
 
