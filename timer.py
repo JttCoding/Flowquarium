@@ -3,6 +3,5 @@ import time
 
 
 class Timer:
-    def __init__(self):
-        ...
-    print("helloworld")
+    def __init__(self, time):
+        self.time = time
