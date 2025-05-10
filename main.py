@@ -1,7 +1,7 @@
 from kivy.lang import Builder
 from kivymd.app import MDApp
 
-KV = """
+KV_FILE = """
 #:import colors kivymd.color_definitions.colors
 
 MDScreen:
@@ -16,7 +16,7 @@ MDScreen:
 class FlowquariumApp(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Blue"
-        return Builder.load_string(KV)
+        return Builder.load_string(KV_FILE)
 
 
 if __name__ == "__main__":
