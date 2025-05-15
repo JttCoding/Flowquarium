@@ -1,5 +1,4 @@
 from kivymd.app import MDApp
-import timer
 
 
 class FlowquariumApp(MDApp):
