@@ -36,3 +36,39 @@ class FlowquariumApp(MDApp):
 
 if __name__ == "__main__":
     FlowquariumApp().run()
+
+from kivymd.app import MDApp
+from kivymd.uix.label import MDLabel
+from kivymd.uix.screen import MDScreen
+from kivy.core.window import Window
+
+
+class ResponsiveMDLabel(MDLabel):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        Window.bind(on_resize=self.adjust_font_size)
+        self.adjust_font_size()
+
+    def adjust_font_size(self, *args):
+        # Adjust font size based on window width
+        self.font_size = max(Window.width / 30, 12)
+
+
+class MainApp(MDApp):
+    def build(self):
+        self.theme_cls.theme_style = "Dark"
+
+        screen = MDScreen()
+
+        label = ResponsiveMDLabel(
+            text="window label lol",
+            halign="center",
+            theme_text_color="Primary",
+            pos_hint={"center_x": 0.5, "center_y": 0.5}
+        )
+
+        screen.add_widget(label)
+        return screen
+
+
+MainApp().run()
