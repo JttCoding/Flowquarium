@@ -10,13 +10,15 @@ class MainScreen(MDScreen):
 
     def on_button_press(self):
         self.total_seconds = int(self.ids.slider.value) * 60
+        in_timer = True
         if self.event:
             self.event.cancel()
         self.event = Clock.schedule_interval(self.tick, 1)
 
-    def tick(self, dt):
+    def tick(self, dt: float):
         if self.total_seconds <= 0:
             self.event.cancel()
+            in_timer = False
             return None
         self.total_seconds -= 1
         hours = divmod(self.total_seconds, 3600)[0]
