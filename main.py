@@ -1,6 +1,7 @@
 from kivy.clock import Clock
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
+from kivy.core.window import Window
 
 
 class MainScreen(MDScreen):
