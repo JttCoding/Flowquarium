@@ -1,12 +1,16 @@
+#:import Window kivy.core.window.Window
+
+
 <MainScreen>:
     md_bg_color: colors[app.theme_cls.primary_palette]["200"]
 
     MDSlider:
         id: slider
+        # FIXME: disable during timer
         disabled: root.in_timer
         orientation: "vertical"
         size_hint: 0.4, 0.4
-        pos_hint: {"center_x": .5, "center_y": .6}
+        pos_hint: {"center_x": .5, "center_y": .75}
         min: 15
         max: 180
         step: 5
@@ -16,15 +20,17 @@
         id: timer_label
         text: f"{(int(slider.value) // 60):02d}:{(int(slider.value) % 60):02d}:00"
         halign: "center"
-        pos_hint: {"center_x": .5, "center_y": .25}
-        font_size: "120sp"
+        size_hint: 1, None
+        height: self.texture_size[1]
+        font_size: f"{min(Window.width  * 0.1, Window.height * 0.15)}sp"
+        pos_hint: {"center_x": .5, "center_y": .4}
         theme_text_color: "Custom"
         text_color: "white"
         font_name: "fonts/poppins.medium"
 
     MDFillRoundFlatButton:
-        text: "Start Timer"
-        pos_hint: {"center_x": .5, "center_y": .1}
+        text: root.button_text()
+        pos_hint: {"center_x": .5, "center_y": .2}
         size_hint: 0.06, 0.075
         md_bg_color: app.theme_cls.primary_color
         on_press: root.on_button_press()
