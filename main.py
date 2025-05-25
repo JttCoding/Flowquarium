@@ -3,6 +3,7 @@ from kivymd.uix.screen import MDScreen
 from kivy.properties import NumericProperty
 from kivy.properties import BooleanProperty
 from kivy.properties import ObjectProperty
+from kivy.properties import AliasProperty
 from kivy.clock import Clock
 
 
@@ -12,6 +13,7 @@ class MainScreen(MDScreen):
     event: ObjectProperty = ObjectProperty(None, allownone=True)
 
     def button_text(self) -> str:
+        # FIXME: Get to update
         if self.in_timer:
             if self.total_seconds <= 0:
                 return "End Timer"
